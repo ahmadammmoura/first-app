@@ -30,7 +30,7 @@ class HornedBeasts extends Component{
             {this.props.description}
           </Card.Text>
           <Card.Text>
-            {this.state.likes}
+            {this.state.likes} Like
           </Card.Text>
         </Card.Body>
         <Button onClick={this.handelLikes} variant="primary">like</Button>
