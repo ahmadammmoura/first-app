@@ -7,30 +7,36 @@ class SelectedBeast extends Component{
 
   constructor(props){
     super(props);
-    this.state={
-      data:this.props.state
-    };
+    // console.log(props);
   }
 
   render(){
+    
+
+    const {oneBeast,likes,show,onHide} = this.props.state;
+
+    console.log(oneBeast,likes);
     return (
       <>
         <Modal
           size="lg"
-          show={this.props.show}
-          onHide={this.props.onHide}
-          aria-labelledby="example-modal-sizes-title-lg">
-          <Modal.Header onClick={()=>this.props.closeModal()} closeButton>
+          show={show}
+          onHide={onHide}
+          aria-labelledby="example-modal-sizes-title-lg" style={{hieght:'100%'}} >
+          <Modal.Header style={{width:'50%',margin:'auto'}} onClick={()=>this.props.closeModal()} closeButton>
             <Modal.Title id="example-modal-sizes-title-lg">
-              {this.state.data[0].title}
+              {oneBeast.title}
             </Modal.Title>
           </Modal.Header>
-          <Modal.Body>
+          <Modal.Body style={{width:'50%',margin:'auto'}} >
             <Card>
-              <Card.Img variant="top" src={this.state.data[0].image_url} />
+              <Card.Img variant="top" src={oneBeast.image_url} />
               <Card.Body>
                 <Card.Text>
-                  {this.state.data[0].description}
+                  {oneBeast.description}
+                </Card.Text>
+                <Card.Text>
+                &#128156; {likes}
                 </Card.Text>
               </Card.Body>
             </Card>

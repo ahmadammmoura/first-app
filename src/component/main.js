@@ -17,14 +17,14 @@ class Main extends Component{
     const list=this.state.animals.map(animal=>{
       return(
         <div key ={animal.title} >  
-          <HornedBeasts handelModal={this.props.handelModal} image_url={animal.image_url} title={animal.title} description={animal.description}/>
+          <HornedBeasts style={{display: 'inline-block'}} handelModal={this.props.handelModal} image_url={animal.image_url} title={animal.title} description={animal.description}/>
         </div>  
       );
     });
     return (
-      <>
+      <div className="container">
         {list}
-      </>
+      </div>
     );
   }
 }

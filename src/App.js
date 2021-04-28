@@ -12,30 +12,19 @@ class App extends Component{
       animals: data,
       show :false,
       onHide : true,
-      array : [
-        {
-          "image_url": "https://cbsnews3.cbsistatic.com/hub/i/r/2013/03/05/5b414225-a645-11e2-a3f0-029118418759/thumbnail/620x350/2d4cf24685b45c22912e64d2004fec8d/Baby_Mouflon_Wild_Sheep.jpg",
-          "title": "Baby mouflon",
-          "description": "The cuteness that is a baby mouflon asleep",
-          "keyword": "mouflon",
-          "horns": 2
-        }
-      ]
+      oneBeast : {},
+      likes : 0
     };
   }
 
-  handelModal = (title)=>{
-    console.log(title);
+  handelModal = (data,likes)=>{
+    console.log(data,likes);
+
     this.setState({
       show :true,
-      onHide : false
-    });
-    const filterd = this.state.animals.filter(element =>{
-      return title === element.title;
-    });
-    console.log(filterd);
-    this.setState({
-      array:filterd
+      onHide : false,
+      oneBeast:data,
+      likes:likes
     });
    
   }
@@ -53,7 +42,7 @@ class App extends Component{
   render(){
     return(
       <div>
-        <SelectedBeast state={this.state.array} closeModal={this.closeModal} show ={this.state.show} onHide = {this.state.onHide} />
+        <SelectedBeast  state={this.state} closeModal={this.closeModal}/>
         <Header/>
         <Main handelModal={this.handelModal} data = {this.state.animals} />
         <Footer/>
