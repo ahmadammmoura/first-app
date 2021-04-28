@@ -15,7 +15,7 @@ class SelectedBeast extends Component{
 
     const {oneBeast,likes,show,onHide} = this.props.state;
 
-    console.log(oneBeast,likes);
+    // console.log(oneBeast,likes);
     return (
       <>
         <Modal
