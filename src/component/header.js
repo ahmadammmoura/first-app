@@ -4,7 +4,7 @@ class Header extends Component{
   render(){
     return (
       <div>
-        <h1>first app</h1>
+        <h1 style={{textAlign:'center'}} >first app</h1>
       </div>
     );
   }
