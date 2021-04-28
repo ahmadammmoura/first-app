@@ -5,10 +5,6 @@ class FormBeast extends Component{
 
   constructor(props){
     super(props);
-    this.state={
-      change:this.props.handelChange ,
-      submit:this.props.handelSubmit
-    };
     
   }
 
@@ -17,10 +13,11 @@ class FormBeast extends Component{
   render(){
     return (
       <>
+      
         
-        <Form onSubmit={this.state.submit} >
+        <Form onSubmit={this.props.handelSubmit} >
           <Form.Label>number of hornes</Form.Label>
-          <Form.Control  name ="numberOfHornes" onChange={this.state.change} as="select" custom>
+          <Form.Control  name ="numberOfHornes" onChange={this.props.handelChange } as="select" custom>
             <option>1</option>
             <option>2</option>
             <option>3</option>

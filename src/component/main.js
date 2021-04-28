@@ -10,7 +10,6 @@ class Main extends Component{
     super(props);
     this.state ={
       animals: this.props.data,
-      filterBy: this.props.numberOfHornes
     };
   }
 
@@ -18,18 +17,21 @@ class Main extends Component{
 
   render(){
 
-    console.log(this.state.filterBy);
+    // console.log(this.props.numberOfHornes);
 
-    const list=this.state.animals.map(animal=>{
+    const {animals} = this.state;
+    const {handelModal,numberOfHornes} = this.props;
+
+    const list= animals.map(animal=>{
       return(
         <div key ={animal.title} >  
-          <HornedBeasts style={{display: 'inline-block'}} handelModal={this.props.handelModal} image_url={animal.image_url} title={animal.title} description={animal.description}/>
+          <HornedBeasts style={{display: 'inline-block'}} handelModal={handelModal} image_url={animal.image_url} title={animal.title} description={animal.description}/>
         </div>  
       );
     });
 
-    const filterdList = this.state.animals.filter(horne =>{
-      return horne.horns === this.state.filterBy;
+    const filterdList = animals.filter(Beast =>{
+      return Beast.horns === parseInt(numberOfHornes);
     }).map(animal =>{
       return (
         <div key ={animal.title} >  
@@ -38,9 +40,11 @@ class Main extends Component{
       );
     });
 
+    console.log(filterdList);
+
     return (
       <div className="container">
-        {this.state.filterBy ? filterdList : list}
+        {numberOfHornes ? filterdList : list}
       </div>
     );
   }
