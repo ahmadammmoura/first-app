@@ -47,13 +47,13 @@ class App extends Component{
     });
   }
 
-  handelChange = (e)=>{
-    e.preventDefault();
-    console.log(e.target.value);
-    this.setState({
-      filterby: e.target.value
-    });
-  }
+  // handelChange = (e)=>{
+  //   e.preventDefault();
+  //   console.log(e.target.value);
+  //   this.setState({
+  //     filterby: e.target.value
+  //   });
+  // }
 
 
   render(){
@@ -62,7 +62,7 @@ class App extends Component{
       <div>
         <SelectedBeast  state={this.state} closeModal={this.closeModal}/>
         <Header/>
-        <FormBeast handelChange={this.handelChange} handelSubmit={this.handelSubmit} />
+        <FormBeast  handelSubmit={this.handelSubmit} />
         <Main numberOfHornes = {this.state.filterby} handelModal={this.handelModal} data = {this.state.animals} />
         <Footer/>
       </div>

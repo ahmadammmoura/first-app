@@ -17,12 +17,12 @@ class FormBeast extends Component{
         
         <Form onSubmit={this.props.handelSubmit} >
           <Form.Label>number of hornes</Form.Label>
-          <Form.Control  name ="numberOfHornes" onChange={this.props.handelChange } as="select" custom>
+          <Form.Control  name ="numberOfHornes"  as="select" custom>
             <option>1</option>
             <option>2</option>
             <option>3</option>
             <option>4</option>
-            <option>5</option>
+            <option>100</option>
           </Form.Control>
           <Button variant="primary" type="submit">
               Submit
